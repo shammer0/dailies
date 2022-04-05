@@ -33,15 +33,28 @@
 //     return n * factorial(n - 1);
 // }
 
-function factorial(n){
-    if (n === 0) {
-        return 1;
-    }
-    let product = n;
-    for (let i = n - 1; i > 0; i--) {
-        product *= i;
-    }
-    return product;
-}
+// function factorial(n){
+//     if (n === 0) {
+//         return 1;
+//     }
+//     let product = n;
+//     for (let i = n - 1; i > 0; i--) {
+//         product *= i;
+//     }
+//     return product;
+// }
 
-console.log(factorial(0));
+// console.log(factorial(0));
+
+function findMultiples(integer, limit) {
+    let multiples = [];
+    for( let i = 1; i <= limit; i++) {
+        if ((i % integer) === 0) {
+            multiples.push(i);
+        }
+    }
+
+    return multiples;
+  }
+
+  console.log(findMultiples(5, 25));
