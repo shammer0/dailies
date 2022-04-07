@@ -46,15 +46,50 @@
 
 // console.log(factorial(0));
 
-function findMultiples(integer, limit) {
-    let multiples = [];
-    for( let i = 1; i <= limit; i++) {
-        if ((i % integer) === 0) {
-            multiples.push(i);
+// function findMultiples(integer, limit) {
+//     let multiples = [];
+//     for( let i = 1; i <= limit; i++) {
+//         if ((i % integer) === 0) {
+//             multiples.push(i);
+//         }
+//     }
+
+//     return multiples;
+//   }
+
+//   console.log(findMultiples(5, 25));
+
+//   Given a sequence of numbers, find the largest pair sum in the sequence.
+
+// function largestPairSum (numbers) {
+//     numbers.sort( function (a, b) {
+//         return +b - +a;
+//     })
+
+//     return numbers[0] + numbers[1];
+// }
+
+// single pass version
+
+function largestPairSum (numbers) {
+    let bigOne = numbers[0];
+    let bigTwo = numbers[1];
+    for (let i = 2; i < numbers.length; i++) {
+        if (numbers[i] > bigOne) {
+            if (bigOne > bigTwo) {
+                bigTwo = bigOne;
+            }
+            bigOne = numbers[i];
+        }
+        else if (numbers[i] > bigTwo) { 
+            bigTwo = numbers[i];
+        }
+        else {
+            continue;
         }
     }
 
-    return multiples;
-  }
+    return bigOne + bigTwo;
+}
 
-  console.log(findMultiples(5, 25));
+console.log(largestPairSum([-100,-29,-24,-19,19]));
