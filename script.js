@@ -267,22 +267,45 @@
 // [10, 343445353, 3453445, 3453545353453] should return 3453455.
 
 
-function sumTwoSmallestNumbers(numbers) {  
-    let smallOne = numbers[0];
-    let smallTwo = numbers[1];
-    for (let i = 2; i < numbers.length; i++) {
-        if (numbers[i] < smallOne) {
-            if (smallOne < smallTwo) {
-                smallTwo = smallOne;
-            }
-            smallOne = numbers[i];
-        }
-        else if (numbers[i] < smallTwo) {
-            smallTwo = numbers[i];
-        }
-    }
+// function sumTwoSmallestNumbers(numbers) {  
+//     let smallOne = numbers[0];
+//     let smallTwo = numbers[1];
+//     for (let i = 2; i < numbers.length; i++) {
+//         if (numbers[i] < smallOne) {
+//             if (smallOne < smallTwo) {
+//                 smallTwo = smallOne;
+//             }
+//             smallOne = numbers[i];
+//         }
+//         else if (numbers[i] < smallTwo) {
+//             smallTwo = numbers[i];
+//         }
+//     }
 
-    return smallOne + smallTwo;
+//     return smallOne + smallTwo;
+// }
+
+// console.log(sumTwoSmallestNumbers([3, 87, 45, 12, 7]))
+
+// Finish the solution so that it sorts the passed in array of numbers. If the function passes in an empty array or null/nil value then it should return an empty array.
+
+// For example:
+
+// solution([1, 2, 10, 50, 5]); // should return [1,2,5,10,50]
+// solution(null); // should return []
+
+
+function solution(nums){
+    if (!nums?.length) {
+        return [];
+    } 
+    else {
+        return nums.sort(function (b, a) {
+            // console.log(`a: ${a}`);
+            // console.log(`b: ${b}`);
+            return b - a;
+        })
+    }
 }
 
-console.log(sumTwoSmallestNumbers([3, 87, 45, 12, 7]))
+console.log(solution([1, 2, 10, 50, 5]));
