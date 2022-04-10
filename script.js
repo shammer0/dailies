@@ -216,3 +216,73 @@
 
 // console.log(calculate(['7','*','8','+','8','+','5','/','5']));
 
+// create contructor
+
+// Factory
+// function makeCar (carMake,carModel,carColor,numOfDoors) {
+//     return {
+//         carMake,
+//         carModel,
+//         carColor,
+//         numOfDoors
+//     }
+// }
+
+// // Constructor
+// function MakeCar (carMake,carModel,carColor,numOfDoors) {
+//     this.make = carMake;
+//     this.model = carModel;
+//     this.color = carColor;
+//     this.color = numOfDoors;
+// }
+
+// let honda = new makeCar ('honda', 'accord', 'blue', '2'); 
+// let toyota = MakeCar ('toyota','rav4','black','4');
+
+// console.log(honda);
+// console.log(toyota);
+
+// document.querySelector('button').addEventListener('click', getDrink);
+
+// function getDrink() {
+//     let drink = document.querySelector('input').value
+
+//     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
+//     .then(res => res.json())
+//     .then(data => {
+//         console.log(data.drinks)
+//         document.querySelector('h2').innerText = data.drinks[0].strDrink
+//         document.querySelector('img').src = data.drinks[0].strDrinkThumb
+//         document.querySelector('h3').innerText = data.drinks[0].strInstructions
+//     })
+//     .catch(err => {
+//         console.log(`error ${err}`);
+//     })
+// }
+
+// Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
+
+// For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
+
+// [10, 343445353, 3453445, 3453545353453] should return 3453455.
+
+
+function sumTwoSmallestNumbers(numbers) {  
+    let smallOne = numbers[0];
+    let smallTwo = numbers[1];
+    for (let i = 2; i < numbers.length; i++) {
+        if (numbers[i] < smallOne) {
+            if (smallOne < smallTwo) {
+                smallTwo = smallOne;
+            }
+            smallOne = numbers[i];
+        }
+        else if (numbers[i] < smallTwo) {
+            smallTwo = numbers[i];
+        }
+    }
+
+    return smallOne + smallTwo;
+}
+
+console.log(sumTwoSmallestNumbers([3, 87, 45, 12, 7]))
