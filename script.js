@@ -295,17 +295,27 @@
 // solution(null); // should return []
 
 
-function solution(nums){
-    if (!nums?.length) {
-        return [];
-    } 
-    else {
-        return nums.sort(function (b, a) {
-            // console.log(`a: ${a}`);
-            // console.log(`b: ${b}`);
-            return b - a;
-        })
-    }
+// function solution(nums){
+//     if (!nums?.length) {
+//         return [];
+//     } 
+//     else {
+//         return nums.sort(function (b, a) {
+//             // console.log(`a: ${a}`);
+//             // console.log(`b: ${b}`);
+//             return b - a;
+//         })
+//     }
+// }
+
+// console.log(solution([1, 2, 10, 50, 5]));
+
+function evaporator(content, evap_per_day, threshold){ 
+    let days = 0;
+    for (let i = 100; i > threshold; i -= i * (evap_per_day/100)) {
+        days++;
+  }
+  return days;
 }
 
-console.log(solution([1, 2, 10, 50, 5]));
+console.log(evaporator(10, 10, 5));
